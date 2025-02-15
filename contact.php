@@ -37,42 +37,45 @@
         } else {
             $message = test_input($_POST["message"]);
         } 
+        // After successful insert, redirect to the thankyou page
+        header("Location: thank-you.html");
+        exit(); // Make sure to call exit to stop further code execution
         
     
     }
         
     
-    if($isvalid){
+//     if($isvalid){
 
-        $host="localhost";
-        $user="root";
-        $pass="";
-        $database="portfolio";
+//         $host="localhost";
+//         $user="root";
+//         $pass="";
+//         $database="portfolio";
 
-        $connection = mysqli_connect($host,$user,$pass,$database);
+//         $connection = mysqli_connect($host,$user,$pass,$database);
         
-        // if($connection){
-        //     echo " Database successfully connected<br><br>";
-        // }else{
-        //     die("could not connect");
-        // }
+//         // if($connection){
+//         //     echo " Database successfully connected<br><br>";
+//         // }else{
+//         //     die("could not connect");
+//         // }
        
-       if ($_SERVER["REQUEST_METHOD"] == "POST"){
-        $sql = "INSERT INTO contact (name, email, subject, message) VALUES ('$name', '$email', '$subject', '$message')";
-        if (mysqli_query($connection, $sql)) {
-            // After successful insert, redirect to the thankyou page
-            header("Location: thank-you.html");
-            exit(); // Make sure to call exit to stop further code execution
-        } else {
-            echo "Error: " . mysqli_error($connection);
-        }
+//        if ($_SERVER["REQUEST_METHOD"] == "POST"){
+//         $sql = "INSERT INTO contact (name, email, subject, message) VALUES ('$name', '$email', '$subject', '$message')";
+//         if (mysqli_query($connection, $sql)) {
+//             // After successful insert, redirect to the thankyou page
+//             header("Location: thank-you.html");
+//             exit(); // Make sure to call exit to stop further code execution
+//         } else {
+//             echo "Error: " . mysqli_error($connection);
+//         }
 
-        mysqli_close($connection);
+//         mysqli_close($connection);
    
 
         
-    }
-}
+//     }
+// }
     function test_input($data) {
         $data = trim($data);
         $data = stripslashes($data);
